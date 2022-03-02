@@ -6,7 +6,7 @@ import PySimpleGUI as sg
 layout = [
     [sg.Text("Pivot")], 
     [sg.Button('Forward', size=(8, 3)), sg.Button('Back', size=(8, 3)), sg.Button('Left', size=(8, 3)), sg.Button('Right', size=(8, 3))], 
-    [sg.Text("Eblow")], 
+    [sg.Text("Elbow")], 
     [sg.Button('Elbow Up', size=(18, 3)),sg.Button('Elbow Down', size=(18, 3))],
     [sg.Text("Wrist")], 
     [sg.Button('Wrist Up', size=(18, 3)),sg.Button('Wrist Down', size=(18, 3))],
