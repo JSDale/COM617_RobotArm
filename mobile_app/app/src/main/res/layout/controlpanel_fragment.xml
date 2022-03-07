@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="controlPanelViewModel"
+            type="com.example.robot_arm.screens.controlPanel.ControlPanelViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".screens.controlPanel.ControlPanelFragment">
+
+        <!-- Direction grid -->
+        <Button
+            android:id="@+id/btnShoulderUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> controlPanelViewModel.onShoulderUp()}"
+            android:text="@string/btnShoulderUp"
+            android:textSize="12pt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnRotateLeft"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> controlPanelViewModel.onRotateLeft()}"
+            android:text="@string/btnRotateLeft"
+            android:textSize="12pt"
+            app:layout_constraintTop_toBottomOf="@id/btnShoulderUp"
+            app:layout_constraintEnd_toStartOf="@+id/btnRotateRight"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnRotateRight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> controlPanelViewModel.onRotateRight()}"
+            android:text="@string/btnRotateRight"
+            android:textSize="12pt"
+            app:layout_constraintTop_toBottomOf="@id/btnShoulderUp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnRotateLeft" />
+
+        <Button
+            android:id="@+id/btnShoulderDown"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> controlPanelViewModel.onShoulderDown()}"
+            android:text="@string/btnShoulderDown"
+            android:textSize="12pt"
+            app:layout_constraintTop_toBottomOf="@id/btnRotateLeft"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Joint grid -->
+        <ImageView
+            android:id="@+id/imgElbow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_elbow"
+            app:layout_constraintBottom_toTopOf="@id/btnElbowUp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.31"
+            app:layout_constraintEnd_toStartOf="@+id/btnWristUp"
+            />
+
+        <ImageView
+            android:id="@+id/imgWrist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wrist"
+            app:layout_constraintBottom_toTopOf="@id/btnWristUp"
+            app:layout_constraintStart_toEndOf="@id/btnElbowUp"
+            app:layout_constraintHorizontal_bias="0.31"
+            app:layout_constraintEnd_toStartOf="@+id/btnGripOpen"
+            />
+
+        <ImageView
+            android:id="@+id/imgGrip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_grip"
+            app:layout_constraintBottom_toTopOf="@id/btnGripOpen"
+            app:layout_constraintStart_toEndOf="@id/btnWristUp"
+            app:layout_constraintHorizontal_bias="0.31"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <Button
+            android:id="@+id/btnElbowUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> controlPanelViewModel.onElbowUp()}"
+            android:text="@string/btnElbowUp"
+            android:textSize="12pt"
+            app:layout_constraintBottom_toTopOf="@id/btnElbowDown"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.31"
+            app:layout_constraintEnd_toStartOf="@+id/btnWristUp"
+            />
+
+        <Button
+            android:id="@+id/btnWristUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> controlPanelViewModel.onWristUp()}"
+            android:text="@string/btnWritstUp"
+            android:textSize="12pt"
+            app:layout_constraintBottom_toTopOf="@id/btnWristDown"
+            app:layout_constraintStart_toEndOf="@id/btnElbowUp"
+            app:layout_constraintHorizontal_bias="0.31"
+            app:layout_constraintEnd_toStartOf="@+id/btnGripOpen"
+            />
+
+        <Button
+            android:id="@+id/btnGripOpen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> controlPanelViewModel.onGripOpen()}"
+            android:text="@string/btnGripOpen"
+            android:textSize="12pt"
+            app:layout_constraintBottom_toTopOf="@id/btnGripClosed"
+            app:layout_constraintStart_toEndOf="@id/btnWristUp"
+            app:layout_constraintHorizontal_bias="0.31"
+            app:layout_constraintEnd_toEndOf="parent"
+        />
+
+        <Button
+            android:id="@+id/btnElbowDown"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> controlPanelViewModel.onElbowDown()}"
+            android:text="@string/btnElbowDown"
+            android:textSize="12pt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.31"
+            app:layout_constraintEnd_toStartOf="@+id/btnWristDown"
+        />
+
+        <Button
+            android:id="@+id/btnWristDown"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> controlPanelViewModel.onWristDown()}"
+            android:text="@string/btnWristDown"
+            android:textSize="12pt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnElbowDown"
+            app:layout_constraintHorizontal_bias="0.31"
+            app:layout_constraintEnd_toStartOf="@+id/btnGripClosed"
+        />
+
+        <Button
+            android:id="@+id/btnGripClosed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> controlPanelViewModel.onGripClosed()}"
+            android:text="@string/btnGripClosed"
+            android:textSize="12pt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnWristDown"
+            app:layout_constraintHorizontal_bias="0.31"
+            app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

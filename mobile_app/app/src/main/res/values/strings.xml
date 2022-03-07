@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">PointsOfInterest</string>
+    <string name="lblPoiName">Name</string>
+    <string name="lblPoiType">Type</string>
+    <string name="lblPoiDescription">Description</string>
+    <string name="btnAddPoi">Add Point</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="btnAdd">Add</string>
+    <string name="lblPrefUploadPoi">Upload point to the cloud</string>
+    <string name="navMap">Current location</string>
+    <string name="navPoi">Add new point of interest</string>
+    <string name="unfolded_map">Unfolded map</string>
+    <string name="btnShoulderUp">Up</string>
+    <string name="btnRotateLeft">Left</string>
+    <string name="btnRotateRight">Right</string>
+    <string name="btnShoulderDown">Down</string>
+    <string name="btnElbowUp">U</string>
+    <string name="btnWritstUp">U</string>
+    <string name="btnGripOpen">Open</string>
+    <string name="btnElbowDown">D</string>
+    <string name="btnWristDown">D</string>
+    <string name="btnGripClosed">Close</string>
+</resources>
