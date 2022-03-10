@@ -8,7 +8,7 @@ class MaplinArmController:
         self.__arm = usb_arm.Arm()
 
     def blink_led(self):
-        self.__arm.move(usb_arm.blink)
+        self.__arm.doActions(usb_arm.blink)
 
     def move_elbow_up(self):
         self.__arm.move(usb_arm.ElbowUp)
