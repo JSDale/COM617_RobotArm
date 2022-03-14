@@ -3,9 +3,12 @@
 
 import PySimpleGUI as sg
 
+from message_handlers import message_handler_manager, move_elbow, move_shoulder, move_grips, move_wrist, rotate_base
+
+
 layout = [
     [sg.Text("Pivot")], 
-    [sg.Button('Forward', size=(8, 3)), sg.Button('Back', size=(8, 3)), sg.Button('Left', size=(8, 3)), sg.Button('Right', size=(8, 3))], 
+    [sg.Button('Forward', size=(8, 3)), sg.Button('Back', size=(8, 3)), sg.Button('Left', size=(8, 3)), sg.Button('Right', size=(8, 3))],
     [sg.Text("Elbow")], 
     [sg.Button('Elbow Up', size=(18, 3)),sg.Button('Elbow Down', size=(18, 3))],
     [sg.Text("Wrist")], 
@@ -13,6 +16,14 @@ layout = [
     [sg.Text("Claw")], 
     [sg.Button('Claw Open', size=(18, 3)),sg.Button('Claw Close', size=(18, 3))]
     ]
+
+handler_manager = message_handler_manager.MessageHandlerManager()
+
+handler_manager.add_handler(move_elbow.MoveElbow())
+handler_manager.add_handler(move_shoulder.MoveShoulder())
+handler_manager.add_handler(move_grips.MoveGrips())
+handler_manager.add_handler(move_wrist.MoveWrist())
+handler_manager.add_handler(rotate_base.RotateBase())
 
 # Create the window
 window = sg.Window("Arm Controller", layout)
@@ -25,35 +36,34 @@ while True:
     if event == sg.WIN_CLOSED:
         break
     elif event == 'Forward':
-        # Do arm python control
         print("Forward")
+        handler_manager.handle('SHOULDER:DOWN')
     elif event == 'Back':
-        # Do arm python control
         print("Back")
+        handler_manager.handle('SHOULDER:UP')
     elif event == 'Left':
-        # Do arm python control
         print("Left")
+        handler_manager.handle('ROTATE:CLOCKWISE')
     elif event == 'Right':
-        # Do arm python control
         print("Right")
+        handler_manager.handle('ROTATE:CTRCLOCKWISE')
     elif event == 'Elbow Up':
-        # Do arm python control
         print("Elbow Up")
+        handler_manager.handle('ELBOW:UP')
     elif event == 'Elbow Down':
-        # Do arm python control
         print("Elbow Down")
+        handler_manager.handle('ELBOW:DOWN')
     elif event == 'Wrist Up':
-        # Do arm python control
         print("Wrist Up")
+        handler_manager.handle('WRIST:UP')
     elif event == 'Wrist Down':
-        # Do arm python control
         print("Wrist Down")
+        handler_manager.handle('WRIST:DOWN')
     elif event == 'Claw Open':
-        # Do arm python control
         print("Claw Open")
+        handler_manager.handle('GRIPS:OPEN')
     elif event == 'Claw Close':
-        # Do arm python control
         print("Claw Close")
-    
+        handler_manager.handle('GRIPS:CLOSE')
 
 window.close()
