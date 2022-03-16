@@ -116,7 +116,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:onClick="@{() -> controlPanelViewModel.onWristUp()}"
-            android:text="@string/btnWritstUp"
+            android:text="@string/btnWristUp"
             android:textSize="12pt"
             app:layout_constraintBottom_toTopOf="@id/btnWristDown"
             app:layout_constraintStart_toEndOf="@id/btnElbowUp"

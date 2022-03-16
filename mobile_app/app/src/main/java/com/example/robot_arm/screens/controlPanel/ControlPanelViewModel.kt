@@ -1,10 +1,13 @@
 package com.example.robot_arm.screens.controlPanel
 
 import android.app.Application
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 
 class ControlPanelViewModel(application: Application) : AndroidViewModel(application) {
+
     fun onShoulderUp() {
         Log.i("ControlPanelViewModel", "onShoulderUp")
     }
