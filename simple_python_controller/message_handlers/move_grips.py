@@ -3,8 +3,8 @@ from maplin_arm_controller import MaplinArmController
 
 class MoveGrips:
 
-    __open_message = 'GRIPS:UP'
-    __close_message = 'GRIPS:DOWN'
+    __open_message = 'GRIPS:OPEN'
+    __close_message = 'GRIPS:CLOSE'
 
     def can_handle(self, message):
         if message.upper() == self.__open_message or message.upper() == self.__close_message:

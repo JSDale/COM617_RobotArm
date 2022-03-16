@@ -11,7 +11,7 @@ class MaplinArmController:
         self.__arm.doActions(usb_arm.blink)
 
     def move_elbow_up(self):
-        self.__arm.move(usb_arm.ElbowUp)
+        self.__arm.doActions([[usb_arm.ElbowUp, 0.1]])
 
     def move_elbow_down(self):
         self.__arm.move(usb_arm.ElbowDown)

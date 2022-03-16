@@ -43,10 +43,10 @@ while True:
         handler_manager.handle('SHOULDER:UP')
     elif event == 'Left':
         print("Left")
-        handler_manager.handle('ROTATE:CLOCKWISE')
+        handler_manager.handle('ROTATE:CTRCLOCKWISE')
     elif event == 'Right':
         print("Right")
-        handler_manager.handle('ROTATE:CTRCLOCKWISE')
+        handler_manager.handle('ROTATE:CLOCKWISE')
     elif event == 'Elbow Up':
         print("Elbow Up")
         handler_manager.handle('ELBOW:UP')
