@@ -7,6 +7,9 @@ class MoveWrist:
 
     __down_message = 'WRIST:DOWN'
 
+    def __init__(self, controller):
+        self.controller = controller
+
     def can_handle(self, message):
         if message.upper() == self.__up_message or message.upper() == self.__down_message:
             return True
@@ -14,8 +17,7 @@ class MoveWrist:
         return False
 
     def handle(self, message):
-        controller = MaplinArmController()
         if message.upper() == self.__up_message:
-            controller.move_wrist_up()
+            self.controller.move_wrist_up()
         elif message.upper() == self.__down_message:
-            controller.move_wrist_down()
+            self.controller.move_wrist_down()
