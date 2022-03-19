@@ -6,6 +6,9 @@ class MoveGrips:
     __open_message = 'GRIPS:OPEN'
     __close_message = 'GRIPS:CLOSE'
 
+    def __init__(self, controller):
+        self.controller = controller
+
     def can_handle(self, message):
         if message.upper() == self.__open_message or message.upper() == self.__close_message:
             return True
@@ -13,8 +16,7 @@ class MoveGrips:
         return False
 
     def handle(self, message):
-        controller = MaplinArmController()
         if message.upper() == self.__open_message:
-            controller.open_grips()
+            self.controller.open_grips()
         elif message.upper() == self.__close_message:
-            controller.close_grips()
+            self.controller.close_grips()

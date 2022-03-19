@@ -4,26 +4,30 @@
 import PySimpleGUI as sg
 
 from message_handlers import message_handler_manager, move_elbow, move_shoulder, move_grips, move_wrist, rotate_base
+from maplin_arm_controller import MaplinArmController
+
+
+def init_handlers():
+    handler_manager = message_handler_manager.MessageHandlerManager()
+    controller = MaplinArmController(0.1)
+    handler_manager.add_handler(move_elbow.MoveElbow(controller))
+    handler_manager.add_handler(move_shoulder.MoveShoulder(controller))
+    handler_manager.add_handler(move_grips.MoveGrips(controller))
+    handler_manager.add_handler(move_wrist.MoveWrist(controller))
+    handler_manager.add_handler(rotate_base.RotateBase(controller))
+    return handler_manager
 
 
 layout = [
     [sg.Text("Pivot")], 
     [sg.Button('Forward', size=(8, 3)), sg.Button('Back', size=(8, 3)), sg.Button('Left', size=(8, 3)), sg.Button('Right', size=(8, 3))],
     [sg.Text("Elbow")], 
-    [sg.Button('Elbow Up', size=(18, 3)),sg.Button('Elbow Down', size=(18, 3))],
+    [sg.Button('Elbow Up', size=(18, 3)), sg.Button('Elbow Down', size=(18, 3))],
     [sg.Text("Wrist")], 
-    [sg.Button('Wrist Up', size=(18, 3)),sg.Button('Wrist Down', size=(18, 3))],
+    [sg.Button('Wrist Up', size=(18, 3)), sg.Button('Wrist Down', size=(18, 3))],
     [sg.Text("Claw")], 
-    [sg.Button('Claw Open', size=(18, 3)),sg.Button('Claw Close', size=(18, 3))]
+    [sg.Button('Claw Open', size=(18, 3)), sg.Button('Claw Close', size=(18, 3))]
     ]
-
-handler_manager = message_handler_manager.MessageHandlerManager()
-
-handler_manager.add_handler(move_elbow.MoveElbow())
-handler_manager.add_handler(move_shoulder.MoveShoulder())
-handler_manager.add_handler(move_grips.MoveGrips())
-handler_manager.add_handler(move_wrist.MoveWrist())
-handler_manager.add_handler(rotate_base.RotateBase())
 
 # Create the window
 window = sg.Window("Arm Controller", layout)
@@ -31,6 +35,7 @@ window = sg.Window("Arm Controller", layout)
 # Create an event loop
 while True:
     event, values = window.read()
+    handler_manager = init_handlers()
     # End program if user closes window or
     # presses the OK button
     if event == sg.WIN_CLOSED:
