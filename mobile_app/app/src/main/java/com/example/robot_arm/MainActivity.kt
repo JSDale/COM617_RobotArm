@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.preference.PreferenceManager
 import com.example.robot_arm.databinding.ActivityMainBinding
+import com.vmadalin.easypermissions.EasyPermissions
 import org.osmdroid.config.Configuration
 
 class MainActivity : AppCompatActivity() {
@@ -30,5 +31,15 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.nav_host_fragment)
         return NavigationUI.navigateUp(navController, drawerLayout)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>,
+                                            grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        // Let easy permissions handle the request results
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults,
+            this)
     }
 }
