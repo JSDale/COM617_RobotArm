@@ -1,4 +1,4 @@
-import usb_arm
+from robot_arm_abstraction_layer.src import usb_arm
 
 
 # noinspection SpellCheckingInspection

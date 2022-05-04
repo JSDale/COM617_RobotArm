@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import Mock
 
 from maplin_arm_controller import MaplinArmController
 from message_handlers import move_wrist, set_sensitivity
