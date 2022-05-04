@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/controlPanelFragment">
+
+    <fragment
+        android:id="@+id/controlPanelFragment"
+        android:name="com.example.robot_arm.screens.controlPanel.ControlPanelFragment"
+        android:label="fragment_control_panel"
+        tools:layout="@layout/controlpanel_fragment">
+    </fragment>
+
+</navigation>

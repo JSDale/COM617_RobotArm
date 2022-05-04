@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">RobotArm</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="btnAdd">Add</string>
+    <string name="btnShoulderUp">Up</string>
+    <string name="btnRotateLeft">Left</string>
+    <string name="btnRotateRight">Right</string>
+    <string name="btnShoulderDown">Down</string>
+    <string name="btnElbowUp">U</string>
+    <string name="btnWristUp">U</string>
+    <string name="btnGripOpen">Open</string>
+    <string name="btnElbowDown">D</string>
+    <string name="btnWristDown">D</string>
+    <string name="btnGripClosed">Close</string>
+</resources>
