@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import Mock
-from message_handlers import rotate_base
+from robot_arm_abstraction_layer.src.message_handlers import rotate_base
 
 
 class TestsRotationHandler(unittest.TestCase):
