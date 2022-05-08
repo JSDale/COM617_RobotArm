@@ -1,4 +1,3 @@
-from maplin_arm_controller import MaplinArmController
 
 
 class MoveWrist:

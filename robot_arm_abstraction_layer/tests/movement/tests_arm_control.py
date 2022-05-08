@@ -1,6 +1,6 @@
 import unittest
 
-from maplin_arm_controller import MaplinArmController
+from robot_arm_abstraction_layer.src.maplin_arm_controller import MaplinArmController
 
 
 class TestsArmControl(unittest.TestCase):
